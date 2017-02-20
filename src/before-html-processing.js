@@ -8,8 +8,15 @@ const script = (originScreenWidth) => `
   ;(function(){
      var metaEl = document.querySelector('meta[name="viewport"]');
       var dpr = window.devicePixelRatio || 1;
-      if (dpr > 2) {
-          dpr = 2
+      var ua = window.navigator.userAgent
+      var isAndroid = /android/gi.test(ua);
+      var isIphone = /iphone/gi.test(ua)
+      if(isAndroid){
+        dpr = 1;
+      }else if(isIphone){
+        if (dpr > 2) {
+            dpr = 2
+        }
       }
       var scale = 1 / dpr;
       var contentWidth = window.screen.width * dpr;
@@ -17,7 +24,7 @@ const script = (originScreenWidth) => `
           ', minimum-scale=' + scale + ',user-scalable=no')
       document.documentElement.setAttribute('data-dpr', dpr);
       addEventListener('DOMContentLoaded', function () {
-          document.documentElement.style.fontSize = 100 * contentWidth / 750 + 'px'
+          document.documentElement.style.fontSize = 100 * contentWidth / ${originScreenWidth} + 'px'
       })
   })();
 
