@@ -5,14 +5,22 @@ const REGEX_HEAD = /<\/head>/
 const REGEX_STYLE = /<head>/
 const script = (originScreenWidth) => `
   <script>
-      if (document.readyState === 'complete') {
-          document.documentElement.style.fontSize = 100 * innerWidth / 750 + 'px'
-      } else {
-          addEventListener('DOMContentLoaded', function () {
-              console.log('in dom loaded')
-              document.documentElement.style.fontSize = 100 * innerWidth / 750 + 'px'
-          })
+  ;(function(){
+     var metaEl = document.querySelector('meta[name="viewport"]');
+      var dpr = window.devicePixelRatio || 1;
+      if (dpr > 2) {
+          dpr = 2
       }
+      var scale = 1 / dpr;
+      var contentWidth = window.screen.width * dpr;
+      metaEl.setAttribute('content', 'width=' + contentWidth + ',initial-scale=' + scale + ',maximum-scale=' + scale +
+          ', minimum-scale=' + scale + ',user-scalable=no')
+      document.documentElement.setAttribute('data-dpr', dpr);
+      addEventListener('DOMContentLoaded', function () {
+          document.documentElement.style.fontSize = 100 * contentWidth / 750 + 'px'
+      })
+  })();
+
   </script>
 `
 const style = `
