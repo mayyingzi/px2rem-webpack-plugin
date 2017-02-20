@@ -14,7 +14,7 @@ var REGEX_SCRIPT = /(<head>[\s\S]*?)(<script\b[\s\S]*?<\/head>)/;
 var REGEX_HEAD = /<\/head>/;
 var REGEX_STYLE = /<head>/;
 var script = function script(originScreenWidth) {
-  return '\n  <script>\n      if (document.readyState === \'complete\') {\n          document.documentElement.style.fontSize = 100 * innerWidth / 750 + \'px\'\n      } else {\n          addEventListener(\'DOMContentLoaded\', function () {\n              console.log(\'in dom loaded\')\n              document.documentElement.style.fontSize = 100 * innerWidth / 750 + \'px\'\n          })\n      }\n  </script>\n';
+  return '\n  <script>\n  ;(function(){\n     var metaEl = document.querySelector(\'meta[name="viewport"]\');\n      var dpr = window.devicePixelRatio || 1;\n      if (dpr > 2) {\n          dpr = 2\n      }\n      var scale = 1 / dpr;\n      var contentWidth = window.screen.width * dpr;\n      metaEl.setAttribute(\'content\', \'width=\' + contentWidth + \',initial-scale=\' + scale + \',maximum-scale=\' + scale +\n          \', minimum-scale=\' + scale + \',user-scalable=no\')\n      document.documentElement.setAttribute(\'data-dpr\', dpr);\n      addEventListener(\'DOMContentLoaded\', function () {\n          document.documentElement.style.fontSize = 100 * contentWidth / 750 + \'px\'\n      })\n  })();\n\n  </script>\n';
 };
 var style = '\n  <style> body { font-size: .16rem; } </style>\n';
 
