@@ -18,9 +18,9 @@ const script = (originScreenWidth) => `
             dpr = 2
         }
       }
-      var scale = 1 / dpr;
+      var scale = (1 / dpr).toFixed(2);
       var contentWidth = window.screen.width * dpr;
-      metaEl.setAttribute('content', 'width=' + contentWidth + ',initial-scale=' + scale + ',maximum-scale=' + scale +
+      metaEl.setAttribute('content', 'width=device-width,initial-scale=' + scale + ',maximum-scale=' + scale +
           ', minimum-scale=' + scale + ',user-scalable=no')
       document.documentElement.setAttribute('data-dpr', dpr);
       addEventListener('DOMContentLoaded', function () {
