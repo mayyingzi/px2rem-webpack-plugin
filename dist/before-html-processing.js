@@ -40,10 +40,6 @@ var insertStyle = function insertStyle(source, style) {
 };
 
 exports.default = function (htmlPluginData, next) {
-  var originScreenWidth = _option2.default.originScreenWidth;
-
-  var html = insertScript(htmlPluginData.html, script(originScreenWidth));
-  htmlPluginData.html = insertStyle(html, style);
   next();
 };
 

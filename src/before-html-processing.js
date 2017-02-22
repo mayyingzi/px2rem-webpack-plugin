@@ -56,8 +56,8 @@ const insertStyle = (source, style) => {
 }
 
 export default (htmlPluginData, next) => {
-  const {originScreenWidth} = option
-  const html = insertScript(htmlPluginData.html, script(originScreenWidth))
-  htmlPluginData.html = insertStyle(html, style)
+  // const {originScreenWidth} = option
+  // const html = insertScript(htmlPluginData.html, script(originScreenWidth))
+  // htmlPluginData.html = insertStyle(html, style)
   next();
 }
