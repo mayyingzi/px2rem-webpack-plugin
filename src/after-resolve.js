@@ -12,7 +12,7 @@ const handleLoaders = (resource, loaders) => {
     }else{
       path = loader
     }
-    REGEX.test(loader.replace(/\\/g, '/'))
+    REGEX.test(path.replace(/\\/g, '/'))
   })
   const isInNodeModules = resource.includes('/node_modules/')
   if (idx === -1 || isInNodeModules) return;
