@@ -7,7 +7,7 @@ const px2remLoaderFile = require.resolve('./px2rem-loader')
 const handleLoaders = (resource, loaders) => {
   const idx = findIndex(loaders, (loader) => {
     var path;
-    if(loader.loader && typeof loader === 'string'){
+    if(loader.loader && typeof loader.loader === 'string'){
       path = loader.loader
     }else{
       path = loader

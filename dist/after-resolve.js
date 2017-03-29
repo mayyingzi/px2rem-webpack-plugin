@@ -12,7 +12,7 @@ var px2remLoaderFile = require.resolve('./px2rem-loader');
 var handleLoaders = function handleLoaders(resource, loaders) {
   var idx = (0, _lodash.findIndex)(loaders, function (loader) {
     var path;
-    if (loader.loader && typeof loader === 'string') {
+    if (loader.loader && typeof loader.loader === 'string') {
       path = loader.loader;
     } else {
       path = loader;
