@@ -40,7 +40,7 @@ var insertStyle = function insertStyle(source, style) {
 };
 
 exports.default = function (htmlPluginData, next) {
-  next();
+  next(null, htmlPluginData);
 };
 
 module.exports = exports['default'];
