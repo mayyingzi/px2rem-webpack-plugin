@@ -6,7 +6,8 @@ Object.defineProperty(exports, "__esModule", {
 
 var _lodash = require('lodash');
 
-var REGEX = /\/node_modules\/(?:[\.\w]+@)?css-loader\//;
+var REGEX = /\/node_modules\/(?:_css-loader)?(?:[@\.\w]+@)?css-loader\//;
+
 var px2remLoaderFile = require.resolve('./px2rem-loader');
 
 var handleLoaders = function handleLoaders(resource, loaders) {

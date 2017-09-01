@@ -1,7 +1,9 @@
 import {
   findIndex
 } from 'lodash'
-const REGEX = /\/node_modules\/(?:[\.\w]+@)?css-loader\//
+// const REGEX = /\/node_modules\/(?:[\.\w]+@)?css-loader\//
+const REGEX = /\/node_modules\/(?:_css-loader)?(?:[@\.\w]+@)?css-loader\//
+
 const px2remLoaderFile = require.resolve('./px2rem-loader')
 
 const handleLoaders = (resource, loaders) => {
