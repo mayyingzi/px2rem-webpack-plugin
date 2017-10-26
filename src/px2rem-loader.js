@@ -12,9 +12,9 @@ const px2remByRule = (rule) => {
       // case border === 'preserve' && property.startsWith('border'):
       //   return;
       default:
-        declaration.value = value.replace(REGEX, (whole, px) => {
+        value && (declaration.value = value.replace(REGEX, (whole, px) => {
           return px/100 + 'rem'
-        })
+        }))
     }
   })
 }
