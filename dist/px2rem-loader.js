@@ -33,8 +33,6 @@ var px2remByRule = function px2remByRule(rule) {
 
     switch (true) {
       case type === 'comment':
-      case border === 'preserve' && property.startsWith('border'):
-        return;
       default:
         declaration.value = value.replace(REGEX, function (whole, px) {
           return px / 100 + 'rem';
