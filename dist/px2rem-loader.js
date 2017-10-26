@@ -34,9 +34,9 @@ var px2remByRule = function px2remByRule(rule) {
     switch (true) {
       case type === 'comment':
       default:
-        declaration.value = value.replace(REGEX, function (whole, px) {
+        value && (declaration.value = value.replace(REGEX, function (whole, px) {
           return px / 100 + 'rem';
-        });
+        }));
     }
   });
 };
