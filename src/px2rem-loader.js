@@ -8,9 +8,9 @@ const px2remByRule = (rule) => {
     const {border} = option
     switch (true) {
       case type === 'comment':
-      // close border-* into rem 
-      // case border === 'preserve' && property.startsWith('border'):
-      //   return;
+      // close border-* into rem
+      case border === 'preserve' && property.startsWith('border'):
+        return;
       default:
         value && (declaration.value = value.replace(REGEX, (whole, px) => {
           return px/100 + 'rem'
